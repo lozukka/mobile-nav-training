@@ -1,8 +1,8 @@
 :root {
-    --primary-color: #103c58;
-    --hover-color: #2ecc71;
+    --primary-color: #0a2435;
+    --hover-color: #528d6b;
     --text-color: #c2c2c2;
-    --accent-color: #48c3e9;
+    --accent-color: #0b82a7;
 }
 *{
     margin: 0;
@@ -16,6 +16,7 @@ html{
 body {
     min-height: 100vh;
     min-height: 100dvh;
+    
     background-color: var(--primary-color);
 }
 main {
@@ -27,10 +28,14 @@ main p{
 }
 nav {
     background-color: var(--primary-color);
-    border-bottom: 1px solid var(--hover-color)
+    border-bottom: 1px solid var(--hover-color);
+    
 }
 nav ul {
     list-style: none;
+    display: flex;
+}
+nav li{
     display: flex;
 }
 nav .home-li {
@@ -41,4 +46,39 @@ nav a{
     text-decoration: none;
     color: var(--text-color);
     padding: 1em 2em;
+    transition: background-color 150ms ease;
+}
+nav a:hover {
+    background-color: var(--hover-color);
+}
+nav a.active-li{
+    border-bottom: 2px solid var(--text-color);
+}
+nav a.login-li{
+    background-color: var(--accent-color)
+}
+
+@media screen and (max-width: 700px){
+nav  {
+    position: fixed;
+    top:0;
+    right: 0;
+    height: 100vh;
+    width: min(15em, 100%);
+    z-index:10;
+    border-left: 1px solid var(--hover-color);
+}
+nav ul{
+    width: 100%;
+    flex-direction: column;
+}
+nav a {
+    width: 100%;
+    padding-left: 2.5em;
+}
+nav a.active-li {
+    border-bottom: none;
+}
+nav .home.li{
+    margin-right: unset;
 }
